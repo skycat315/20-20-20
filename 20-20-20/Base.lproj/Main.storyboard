@@ -12,13 +12,13 @@
         <!--Timer-->
         <scene sceneID="L0v-NJ-MjW">
             <objects>
-                <viewController storyboardIdentifier="Working" id="seu-GW-gUf" customClass="WorkingViewController" customModule="_0_20_20" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Working" id="seu-GW-gUf" customClass="TimerViewController" customModule="_0_20_20" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b9t-cV-Mdb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-rB-t4X">
-                                <rect key="frame" x="272" y="672" width="100" height="36"/>
+                                <rect key="frame" x="272" y="677" width="100" height="36"/>
                                 <color key="backgroundColor" red="0.63137254901960782" green="0.87058823529411766" blue="0.57647058823529407" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="d11-Ej-Gcu"/>
@@ -28,11 +28,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="skipWorkingTimer:" destination="seu-GW-gUf" eventType="touchUpInside" id="DLz-jf-bPh"/>
+                                    <action selector="skipTimer:" destination="seu-GW-gUf" eventType="touchUpInside" id="Ens-4L-Bza"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDm-2T-voA">
-                                <rect key="frame" x="122" y="397" width="170" height="48"/>
+                                <rect key="frame" x="122" y="424" width="170" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="UPs-PK-e7g"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0S-Qv-lwK">
-                                <rect key="frame" x="42" y="672" width="100" height="36"/>
+                                <rect key="frame" x="42" y="677" width="100" height="36"/>
                                 <color key="backgroundColor" red="0.63137254899999995" green="0.87058823529999996" blue="0.57647058819999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="sai-v2-Yv4"/>
@@ -51,11 +51,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="startWorkingTimer:" destination="seu-GW-gUf" eventType="touchUpInside" id="VMu-y3-GT4"/>
+                                    <action selector="startTimer:" destination="seu-GW-gUf" eventType="touchUpInside" id="Ogh-ZM-CZC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqz-ez-8B3">
-                                <rect key="frame" x="157" y="672" width="100" height="36"/>
+                                <rect key="frame" x="157" y="677" width="100" height="36"/>
                                 <color key="backgroundColor" red="0.63137254899999995" green="0.87058823529999996" blue="0.57647058819999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="NXi-F1-AeQ"/>
@@ -65,11 +65,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="stopWorkingTimer:" destination="seu-GW-gUf" eventType="touchUpInside" id="ta3-5B-gle"/>
+                                    <action selector="stopTimer:" destination="seu-GW-gUf" eventType="touchUpInside" id="ZUU-Gv-DlI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3D0-8p-eZa">
-                                <rect key="frame" x="161.5" y="747.5" width="91.5" height="35.5"/>
+                                <rect key="frame" x="161.5" y="752.5" width="91.5" height="35.5"/>
                                 <color key="tintColor" white="0.78000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.left.square" catalog="system">
@@ -83,9 +83,15 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="workingTimerToHome:" destination="seu-GW-gUf" eventType="touchUpInside" id="b2p-Vx-FwI"/>
+                                    <action selector="backToHome:" destination="seu-GW-gUf" eventType="touchUpInside" id="8Sx-RH-mDh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUt-yE-iOG">
+                                <rect key="frame" x="132.5" y="124" width="149" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0fA-E3-uMc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,6 +101,8 @@
                             <constraint firstItem="0fA-E3-uMc" firstAttribute="bottom" secondItem="zNM-rB-t4X" secondAttribute="bottom" constant="100" id="MWI-ti-GBE"/>
                             <constraint firstItem="IDm-2T-voA" firstAttribute="centerX" secondItem="b9t-cV-Mdb" secondAttribute="centerX" id="MmB-LI-Jdf"/>
                             <constraint firstItem="jqz-ez-8B3" firstAttribute="leading" secondItem="q0S-Qv-lwK" secondAttribute="trailing" constant="15" id="TOX-hy-e3h"/>
+                            <constraint firstItem="uUt-yE-iOG" firstAttribute="centerX" secondItem="b9t-cV-Mdb" secondAttribute="centerX" id="Tva-PD-G9f"/>
+                            <constraint firstItem="uUt-yE-iOG" firstAttribute="top" secondItem="0fA-E3-uMc" secondAttribute="top" constant="80" id="YuS-eW-SMe"/>
                             <constraint firstItem="IDm-2T-voA" firstAttribute="centerY" secondItem="b9t-cV-Mdb" secondAttribute="centerY" id="g4q-ev-TSR"/>
                             <constraint firstItem="zNM-rB-t4X" firstAttribute="leading" secondItem="jqz-ez-8B3" secondAttribute="trailing" constant="15" id="oAn-C0-dDm"/>
                             <constraint firstItem="0fA-E3-uMc" firstAttribute="bottom" secondItem="q0S-Qv-lwK" secondAttribute="bottom" constant="100" id="q0f-hF-Bq9"/>
@@ -105,117 +113,13 @@
                     <tabBarItem key="tabBarItem" title="Timer" image="timer" catalog="system" id="PC9-gO-SZ9"/>
                     <navigationItem key="navigationItem" id="cyg-Ec-R8Y"/>
                     <connections>
-                        <outlet property="workingTimerLabel" destination="IDm-2T-voA" id="7se-DU-b86"/>
-                        <segue destination="PAV-Nk-l08" kind="show" identifier="toRestingTimer" id="UVj-Yx-i3F"/>
+                        <outlet property="statusLabel" destination="uUt-yE-iOG" id="f9r-rl-1Qr"/>
+                        <outlet property="timerLabel" destination="IDm-2T-voA" id="pcx-6R-Gxr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHV-Xq-rMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1278.2608695652175" y="103.79464285714285"/>
-        </scene>
-        <!--Resting View Controller-->
-        <scene sceneID="LvI-yt-4Sd">
-            <objects>
-                <viewController storyboardIdentifier="Resting" id="PAV-Nk-l08" customClass="RestingViewController" customModule="_0_20_20" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tgS-Pe-3Sb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu6-NT-e22">
-                                <rect key="frame" x="122" y="397" width="170" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="Yqj-KK-Mgl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEK-Xk-edy">
-                                <rect key="frame" x="272" y="672" width="100" height="36"/>
-                                <color key="backgroundColor" red="0.63137254899999995" green="0.87058823529999996" blue="0.57647058819999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="66o-P7-u7d"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipRestingTimer:" destination="PAV-Nk-l08" eventType="touchUpInside" id="Z3I-NT-iqW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDF-Tu-HX5">
-                                <rect key="frame" x="157" y="672" width="100" height="36"/>
-                                <color key="backgroundColor" red="0.63137254899999995" green="0.87058823529999996" blue="0.57647058819999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="oXg-1H-DMP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopRestingTimer:" destination="PAV-Nk-l08" eventType="touchUpInside" id="j6y-LN-vvm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3I-ae-gTn">
-                                <rect key="frame" x="42" y="672" width="100" height="36"/>
-                                <color key="backgroundColor" red="0.63137254899999995" green="0.87058823529999996" blue="0.57647058819999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="oe5-Ho-cdb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="startRestingTimer:" destination="PAV-Nk-l08" eventType="touchUpInside" id="u4f-11-S2d"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEM-7j-7Ps">
-                                <rect key="frame" x="161.5" y="747.5" width="91.5" height="35.5"/>
-                                <color key="tintColor" white="0.78000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.left.square" catalog="system">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Home">
-                                            <attributes>
-                                                <font key="NSFont" metaFont="system" size="18"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="restingTimerToHome:" destination="PAV-Nk-l08" eventType="touchUpInside" id="5pK-lR-Ufv"/>
-                                    <action selector="workingTimerToHome:" destination="seu-GW-gUf" eventType="touchUpInside" id="wGn-SW-t5a"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Kjk-cR-wu8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Kjk-cR-wu8" firstAttribute="bottom" secondItem="nDF-Tu-HX5" secondAttribute="bottom" constant="100" id="3im-gJ-W5F"/>
-                            <constraint firstItem="Nu6-NT-e22" firstAttribute="centerY" secondItem="tgS-Pe-3Sb" secondAttribute="centerY" id="AX1-jX-t50"/>
-                            <constraint firstItem="Kjk-cR-wu8" firstAttribute="bottom" secondItem="b3I-ae-gTn" secondAttribute="bottom" constant="100" id="La2-hH-aRn"/>
-                            <constraint firstItem="Kjk-cR-wu8" firstAttribute="bottom" secondItem="HEM-7j-7Ps" secondAttribute="bottom" constant="25" id="RkJ-XX-lxB"/>
-                            <constraint firstItem="HEM-7j-7Ps" firstAttribute="centerX" secondItem="tgS-Pe-3Sb" secondAttribute="centerX" id="SgP-Bl-lz6"/>
-                            <constraint firstItem="HEK-Xk-edy" firstAttribute="leading" secondItem="nDF-Tu-HX5" secondAttribute="trailing" constant="15" id="Y5e-ee-uKw"/>
-                            <constraint firstItem="Kjk-cR-wu8" firstAttribute="bottom" secondItem="HEK-Xk-edy" secondAttribute="bottom" constant="100" id="mgD-11-1lL"/>
-                            <constraint firstItem="nDF-Tu-HX5" firstAttribute="leading" secondItem="b3I-ae-gTn" secondAttribute="trailing" constant="15" id="oWx-wA-8rb"/>
-                            <constraint firstItem="Nu6-NT-e22" firstAttribute="centerX" secondItem="tgS-Pe-3Sb" secondAttribute="centerX" id="tAV-pC-GEO"/>
-                            <constraint firstItem="nDF-Tu-HX5" firstAttribute="centerX" secondItem="tgS-Pe-3Sb" secondAttribute="centerX" id="wKv-nr-6Yn"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="kFX-bA-Sp5"/>
-                    <connections>
-                        <outlet property="restingTimerLabel" destination="Nu6-NT-e22" id="8d1-hM-JFO"/>
-                        <segue destination="seu-GW-gUf" kind="show" identifier="toWorkingTimer" id="F8W-ee-quc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L5F-tl-9m0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2188" y="1048"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="FX8-KC-b4c">
@@ -486,10 +390,6 @@
             <point key="canvasLocation" x="242.0289855072464" y="103.79464285714285"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="UVj-Yx-i3F"/>
-        <segue reference="F8W-ee-quc"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.left.square" catalog="system" width="128" height="114"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>

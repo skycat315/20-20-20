@@ -21,7 +21,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     // タブバーのアイコンがタップされた時に呼ばれるdelegateメソッドを処理する
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController is WorkingViewController {
+        if viewController is TimerViewController {
             // WorkingViewControllerはタブ切り替えではなくモーダル画面遷移する
             let WorkingViewController = storyboard!.instantiateViewController(withIdentifier: "Working")
             present(WorkingViewController, animated: true)

@@ -12,8 +12,7 @@
 		F6871318275E313600EBB632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6871316275E313600EBB632 /* Main.storyboard */; };
 		F687131A275E313700EBB632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6871319275E313700EBB632 /* Assets.xcassets */; };
 		F687131D275E313700EBB632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F687131B275E313700EBB632 /* LaunchScreen.storyboard */; };
-		F6871325275E318E00EBB632 /* WorkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871324275E318E00EBB632 /* WorkingViewController.swift */; };
-		F6871327275E319C00EBB632 /* RestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871326275E319C00EBB632 /* RestingViewController.swift */; };
+		F6871325275E318E00EBB632 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871324275E318E00EBB632 /* TimerViewController.swift */; };
 		F6871329275E31A900EBB632 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871328275E31A900EBB632 /* SettingViewController.swift */; };
 		F687132B275E323E00EBB632 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687132A275E323E00EBB632 /* HomeViewController.swift */; };
 		F6A528CD27633060005C3CEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A528CC27633060005C3CEF /* TabBarController.swift */; };
@@ -27,8 +26,7 @@
 		F6871319275E313700EBB632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F687131C275E313700EBB632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F687131E275E313700EBB632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F6871324275E318E00EBB632 /* WorkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingViewController.swift; sourceTree = "<group>"; };
-		F6871326275E319C00EBB632 /* RestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestingViewController.swift; sourceTree = "<group>"; };
+		F6871324275E318E00EBB632 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		F6871328275E31A900EBB632 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F687132A275E323E00EBB632 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F6A528CC27633060005C3CEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -69,8 +67,7 @@
 				F687132A275E323E00EBB632 /* HomeViewController.swift */,
 				F6A528CC27633060005C3CEF /* TabBarController.swift */,
 				F6871328275E31A900EBB632 /* SettingViewController.swift */,
-				F6871326275E319C00EBB632 /* RestingViewController.swift */,
-				F6871324275E318E00EBB632 /* WorkingViewController.swift */,
+				F6871324275E318E00EBB632 /* TimerViewController.swift */,
 				F6871316275E313600EBB632 /* Main.storyboard */,
 				F6871319275E313700EBB632 /* Assets.xcassets */,
 				F687131B275E313700EBB632 /* LaunchScreen.storyboard */,
@@ -150,9 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6871311275E313600EBB632 /* AppDelegate.swift in Sources */,
-				F6871325275E318E00EBB632 /* WorkingViewController.swift in Sources */,
+				F6871325275E318E00EBB632 /* TimerViewController.swift in Sources */,
 				F6871313275E313600EBB632 /* SceneDelegate.swift in Sources */,
-				F6871327275E319C00EBB632 /* RestingViewController.swift in Sources */,
 				F6A528CD27633060005C3CEF /* TabBarController.swift in Sources */,
 				F687132B275E323E00EBB632 /* HomeViewController.swift in Sources */,
 				F6871329275E31A900EBB632 /* SettingViewController.swift in Sources */,
