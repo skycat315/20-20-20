@@ -8,6 +8,7 @@
 import UIKit
 import AudioToolbox // サウンドを使用するため
 import UICircularProgressRing // タイマーのプログレスバーを使用するため
+import UserNotifications // Notificationsを使用するため
 
 class TimerViewController: UIViewController {
     
@@ -90,6 +91,16 @@ class TimerViewController: UIViewController {
                 AudioServicesCreateSystemSoundID(soundUrl, &soundIdLadder)
                 AudioServicesPlaySystemSound(soundIdLadder)
             }
+            
+            // ローカル通知の内容
+            let restingNotification = UNMutableNotificationContent()
+            restingNotification.title = "20 minutes have passed"
+            restingNotification.body = "Look at something 20 feet away"
+            restingNotification.sound = UNNotificationSound.default
+            // 通知を表示
+            let restingNotificationRequest = UNNotificationRequest(identifier: "immediately", content: restingNotification, trigger: nil)
+            UNUserNotificationCenter.current().add(restingNotificationRequest, withCompletionHandler: nil)
+            
             // タイマーを初期化
             self.workingTimer.invalidate()
             self.workingElapsedTime = 0
@@ -97,6 +108,7 @@ class TimerViewController: UIViewController {
             self.workingTimerPause = true
             // プログレスバーを初期化
             self.progressWorkingRing.resetProgress()
+            
             // restingTimerMethodを実行
             self.restingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(restingTimerMethod), userInfo: nil, repeats: true)
             
@@ -126,6 +138,16 @@ class TimerViewController: UIViewController {
                 AudioServicesCreateSystemSoundID(soundUrl, &soundIdLadder)
                 AudioServicesPlaySystemSound(soundIdLadder)
             }
+            
+            // ローカル通知の内容
+            let workingNotification = UNMutableNotificationContent()
+            workingNotification.title = "20 seconds have passed"
+            workingNotification.body = "You can back to work now"
+            workingNotification.sound = UNNotificationSound.default
+            // 通知を表示
+            let workingNotificationRequest = UNNotificationRequest(identifier: "immediately", content: workingNotification, trigger: nil)
+            UNUserNotificationCenter.current().add(workingNotificationRequest, withCompletionHandler: nil)
+            
             // タイマーを初期化
             self.restingTimer.invalidate()
             self.restingElapsedTime = 0
@@ -133,7 +155,8 @@ class TimerViewController: UIViewController {
             self.restingTimerPause = true
             // プログレスバーの色を初期状態に戻す
             self.progressRestingRing.resetProgress()
-            // workingTimerMethodに移動
+            
+            // workingTimerMethodを実行
             self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
             
         }
