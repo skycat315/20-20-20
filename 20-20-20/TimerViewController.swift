@@ -7,6 +7,7 @@
 
 import UIKit
 import AudioToolbox // サウンドを使用するため
+import UICircularProgressRing // タイマーのプログレスバーを使用するため
 
 class TimerViewController: UIViewController {
     
@@ -15,25 +16,55 @@ class TimerViewController: UIViewController {
     // タイマー表示ラベル
     @IBOutlet weak var timerLabel: UILabel!
     
-    // workingタイマー
+    // タイマー
     var workingTimer: Timer!
-    // restingタイマー
     var restingTimer: Timer!
     
     // 一時停止用の変数
     var workingTimerPause: Bool = false
     var restingTimerPause: Bool = true
     
-    // workingタイマー用の時間のための変数
+    // タイマー用の時間のための変数
     var workingElapsedTime: Int = 0
-    // restingタイマー用の時間のための変数
     var restingElapsedTime: Int = 0
+    
+    // プログレスバー
+    var progressWorkingRing = UICircularProgressRing()
+    var progressRestingRing = UICircularProgressRing()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // タイマーの作成、開始
         self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
+        
+        // progressWorkingRing
+        // プログレスバーの初期設定
+        progressWorkingRing.maxValue = 10
+        progressWorkingRing.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        progressWorkingRing.center = self.view.center
+        self.view.addSubview(progressWorkingRing)
+        // リング中の%を非表示にする
+        progressWorkingRing.shouldShowValueText = false
+        // バーの色を変更
+        progressWorkingRing.outerRingColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        progressWorkingRing.innerRingColor = UIColor(red: 0.7, green: 0.7, blue: 1, alpha: 1)
+        // バーの始点をリング上部に変更
+        progressWorkingRing.startAngle = 270
+        
+        // progressRestingRing
+        // プログレスバーの初期設定
+        progressRestingRing.maxValue = 5
+        progressRestingRing.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        progressRestingRing.center = self.view.center
+        self.view.addSubview(progressRestingRing)
+        // リング中の%を非表示にする
+        progressRestingRing.shouldShowValueText = false
+        // バーの色を変更
+        progressRestingRing.outerRingColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        progressRestingRing.innerRingColor = UIColor(red: 1, green: 0.6, blue: 0.7, alpha: 1)
+        // バーの始点をリング上部に変更
+        progressRestingRing.startAngle = 270
     }
     
     @objc func workingTimerMethod(_ timer: Timer) {
@@ -48,6 +79,8 @@ class TimerViewController: UIViewController {
         self.timerLabel.text = String(format: "%02d : %02d", minute, second)
         // status表示
         self.statusLabel.text = String("Time to work")
+        // プログレスバー表示
+        self.progressWorkingRing.startProgress(to: 10, duration: 10)
         
         // 20分(1200秒)を経過したらタイマー音を再生&restingTimerMethodに移動
         if (workingElapsedTime == 10) {
@@ -61,8 +94,12 @@ class TimerViewController: UIViewController {
             self.workingTimer.invalidate()
             self.workingElapsedTime = 0
             self.workingTimer = nil
-            // restingTimerMethodに移動
+            self.workingTimerPause = true
+            // プログレスバーを初期化
+            self.progressWorkingRing.resetProgress()
+            // restingTimerMethodを実行
             self.restingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(restingTimerMethod), userInfo: nil, repeats: true)
+            
         }
     }
     
@@ -78,8 +115,10 @@ class TimerViewController: UIViewController {
         self.timerLabel.text = String(format: "%02d : %02d", minute, second)
         // status表示
         self.statusLabel.text = String("Time to take a break")
+        // プログレスバー表示
+        self.progressRestingRing.startProgress(to: 5, duration: 5)
         
-        // 20秒経過したらタイマー音を再生&workingTimerMethodに移動
+        // 20秒経過したらタイマー音を再生&workingTimerMethodを実行
         if (restingElapsedTime == 5) {
             // サウンド再生
             var soundIdLadder:SystemSoundID = 1026
@@ -91,6 +130,9 @@ class TimerViewController: UIViewController {
             self.restingTimer.invalidate()
             self.restingElapsedTime = 0
             self.restingTimer = nil
+            self.restingTimerPause = true
+            // プログレスバーの色を初期状態に戻す
+            self.progressRestingRing.resetProgress()
             // workingTimerMethodに移動
             self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
             
@@ -103,10 +145,14 @@ class TimerViewController: UIViewController {
             // workingタイマー再スタート
             self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
             self.workingTimerPause = false
+            // プログレスタイマー再スタート
+            self.progressWorkingRing.continueProgress()
         } else if (self.restingTimerPause == true && self.workingTimer == nil) {
             // restingタイマー再スタート
             self.restingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(restingTimerMethod), userInfo: nil, repeats: true)
             self.restingTimerPause = false
+            // プログレスタイマー再スタート
+            self.progressRestingRing.continueProgress()
         }
     }
     
@@ -117,11 +163,15 @@ class TimerViewController: UIViewController {
             self.workingTimerPause = true
             self.workingTimer.invalidate()
             self.workingTimer = nil
+            // プログレスタイマーを一時停止
+            self.progressWorkingRing.pauseProgress()
         } else if (self.restingTimer != nil) {
             // restingタイマーを一時停止
             self.restingTimerPause = true
             self.restingTimer.invalidate()
             self.restingTimer = nil
+            // プログレスタイマーを一時停止
+            self.progressRestingRing.pauseProgress()
         }
     }
     
@@ -132,6 +182,8 @@ class TimerViewController: UIViewController {
             self.workingTimer.invalidate()
             self.workingElapsedTime = 0
             self.workingTimer = nil
+            // プログレスタイマーを初期化する
+            self.progressWorkingRing.resetProgress()
             // restingタイマースタート
             self.restingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(restingTimerMethod), userInfo: nil, repeats: true)
         } else if (self.restingTimer != nil) {
@@ -139,6 +191,8 @@ class TimerViewController: UIViewController {
             self.restingTimer.invalidate()
             self.restingElapsedTime = 0
             self.restingTimer = nil
+            // プログレスタイマーを初期化する
+            self.progressRestingRing.resetProgress()
             // workingタイマースタート
             self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
         }
