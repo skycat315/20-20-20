@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         center.delegate = self
         // --- ここまで ---
+        
         return true
     }
     

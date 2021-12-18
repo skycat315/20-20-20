@@ -53,8 +53,8 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         
         // progressWorkingRing
         // プログレスバーの初期設定
-        progressWorkingRing.maxValue = 20
-        progressWorkingRing.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        progressWorkingRing.maxValue = 1200
+        progressWorkingRing.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         progressWorkingRing.center = self.view.center
         self.view.addSubview(progressWorkingRing)
         // リング中の%を非表示にする
@@ -67,8 +67,8 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         
         // progressRestingRing
         // プログレスバーの初期設定
-        progressRestingRing.maxValue = 5
-        progressRestingRing.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        progressRestingRing.maxValue = 20
+        progressRestingRing.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         progressRestingRing.center = self.view.center
         self.view.addSubview(progressRestingRing)
         // リング中の%を非表示にする
@@ -93,10 +93,10 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         // status表示
         self.statusLabel.text = String("Time to work")
         // プログレスバー表示
-        self.progressWorkingRing.startProgress(to: 20, duration: 20)
+        self.progressWorkingRing.startProgress(to: 1200, duration: 1200)
         
         // 20分(1200秒)を経過したらタイマー音を再生&restingTimerMethodに移動
-        if (workingElapsedTime == 20) {
+        if (workingElapsedTime == 1200) {
             // サウンド再生
             var soundIdLadder:SystemSoundID = 1026
             if let soundUrl = CFBundleCopyResourceURL(CFBundleGetMainBundle(), nil, nil, nil) {
@@ -140,10 +140,10 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         // status表示
         self.statusLabel.text = String("Time to take a break")
         // プログレスバー表示
-        self.progressRestingRing.startProgress(to: 10, duration: 10)
+        self.progressRestingRing.startProgress(to: 20, duration: 20)
         
         // 20秒経過したらタイマー音を再生&workingTimerMethodを実行
-        if (restingElapsedTime == 10) {
+        if (restingElapsedTime == 20) {
             // サウンド再生
             var soundIdLadder:SystemSoundID = 1026
             if let soundUrl = CFBundleCopyResourceURL(CFBundleGetMainBundle(), nil, nil, nil) {
@@ -263,7 +263,7 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         if let _ = workingTimer {
             workingTimerIsBackground = true
             // タイマーの残り時間を計算
-            let remainWorkingTime = 20 - workingElapsedTime
+            let remainWorkingTime = 1200 - workingElapsedTime
             // 20分に到達したタイミングでローカル通知を出す
             let date2 = Date(timeInterval: TimeInterval(remainWorkingTime), since: date)
             let targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2)
@@ -280,7 +280,7 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         } else if let _ = restingTimer {
             restingTimerIsBackground = true
             // タイマーの残り時間を計算
-            let remainRestingTime = 10 - restingElapsedTime
+            let remainRestingTime = 20 - restingElapsedTime
             // 20秒に到達したタイミングでローカル通知を出す
             let date2 = Date(timeInterval: TimeInterval(remainRestingTime), since: date)
             let targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2)
@@ -301,7 +301,7 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         if let _ = workingTimer {
             // 残り時間にバックグラウンドでの経過時間を足す
             workingElapsedTime += elapsedTime
-            if (workingElapsedTime < 20) {
+            if (workingElapsedTime < 1200) {
                 // workingタイマーを再始動
                 self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
             } else {
@@ -321,7 +321,7 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         } else if let _ = restingTimer {
             // 残り時間にバックグラウンドでの経過時間を足す
             restingElapsedTime += elapsedTime
-            if (restingElapsedTime < 10) {
+            if (restingElapsedTime < 20) {
                 // restingタイマーを再始動
                 self.restingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(restingTimerMethod), userInfo: nil, repeats: true)
             } else {
