@@ -87,8 +87,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUt-yE-iOG">
-                                <rect key="frame" x="132.5" y="124" width="149" height="33"/>
+                                <rect key="frame" x="132.5" y="144" width="149" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZT-Gt-I4W">
+                                <rect key="frame" x="181.5" y="85" width="51" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -97,12 +103,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0fA-E3-uMc" firstAttribute="bottom" secondItem="jqz-ez-8B3" secondAttribute="bottom" constant="100" id="90P-rv-RKk"/>
+                            <constraint firstItem="gZT-Gt-I4W" firstAttribute="centerX" secondItem="b9t-cV-Mdb" secondAttribute="centerX" id="HS3-OB-tvD"/>
                             <constraint firstItem="0fA-E3-uMc" firstAttribute="bottom" secondItem="3D0-8p-eZa" secondAttribute="bottom" constant="25" id="JI8-gC-65c"/>
                             <constraint firstItem="0fA-E3-uMc" firstAttribute="bottom" secondItem="zNM-rB-t4X" secondAttribute="bottom" constant="100" id="MWI-ti-GBE"/>
                             <constraint firstItem="IDm-2T-voA" firstAttribute="centerX" secondItem="b9t-cV-Mdb" secondAttribute="centerX" id="MmB-LI-Jdf"/>
+                            <constraint firstItem="uUt-yE-iOG" firstAttribute="top" secondItem="gZT-Gt-I4W" secondAttribute="bottom" constant="30" id="TC6-ud-oOt"/>
                             <constraint firstItem="jqz-ez-8B3" firstAttribute="leading" secondItem="q0S-Qv-lwK" secondAttribute="trailing" constant="15" id="TOX-hy-e3h"/>
                             <constraint firstItem="uUt-yE-iOG" firstAttribute="centerX" secondItem="b9t-cV-Mdb" secondAttribute="centerX" id="Tva-PD-G9f"/>
-                            <constraint firstItem="uUt-yE-iOG" firstAttribute="top" secondItem="0fA-E3-uMc" secondAttribute="top" constant="80" id="YuS-eW-SMe"/>
+                            <constraint firstItem="uUt-yE-iOG" firstAttribute="top" secondItem="0fA-E3-uMc" secondAttribute="top" constant="100" id="YuS-eW-SMe"/>
                             <constraint firstItem="IDm-2T-voA" firstAttribute="centerY" secondItem="b9t-cV-Mdb" secondAttribute="centerY" id="g4q-ev-TSR"/>
                             <constraint firstItem="zNM-rB-t4X" firstAttribute="leading" secondItem="jqz-ez-8B3" secondAttribute="trailing" constant="15" id="oAn-C0-dDm"/>
                             <constraint firstItem="0fA-E3-uMc" firstAttribute="bottom" secondItem="q0S-Qv-lwK" secondAttribute="bottom" constant="100" id="q0f-hF-Bq9"/>
@@ -113,6 +121,7 @@
                     <tabBarItem key="tabBarItem" title="Timer" image="timer" catalog="system" id="PC9-gO-SZ9"/>
                     <navigationItem key="navigationItem" id="cyg-Ec-R8Y"/>
                     <connections>
+                        <outlet property="setCountLabel" destination="gZT-Gt-I4W" id="lkD-yD-SSB"/>
                         <outlet property="statusLabel" destination="uUt-yE-iOG" id="f9r-rl-1Qr"/>
                         <outlet property="timerLabel" destination="IDm-2T-voA" id="pcx-6R-Gxr"/>
                     </connections>

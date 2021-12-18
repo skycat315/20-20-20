@@ -16,6 +16,8 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     // タイマー表示ラベル
     @IBOutlet weak var timerLabel: UILabel!
+    // セット数表示ラベル
+    @IBOutlet weak var setCountLabel: UILabel!
     
     // タイマー
     var workingTimer: Timer!
@@ -32,6 +34,10 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
     // プログレスバー
     var progressWorkingRing = UICircularProgressRing()
     var progressRestingRing = UICircularProgressRing()
+    
+    // セット数カウント
+    var workingSetCount: Int = 0
+    var restingSetCount: Int = 0
     
     // タイマー起動中にバックグラウンドに移動したか
     var workingTimerIsBackground = false
@@ -95,6 +101,12 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         // プログレスバー表示
         self.progressWorkingRing.startProgress(to: 1200, duration: 1200)
         
+        // セット数表示（タイマーが始動した時に1度だけ表示する）
+        if (workingElapsedTime == 1) {
+            self.workingSetCount += 1
+            self.setCountLabel.text = "Set " + String(workingSetCount)
+        }
+        
         // 20分(1200秒)を経過したらタイマー音を再生&restingTimerMethodに移動
         if (workingElapsedTime == 1200) {
             // サウンド再生
@@ -141,6 +153,12 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
         self.statusLabel.text = String("Time to take a break")
         // プログレスバー表示
         self.progressRestingRing.startProgress(to: 20, duration: 20)
+        
+        // セット数表示（タイマーが始動した時に1度だけ表示する）
+        if (restingElapsedTime == 1) {
+            self.restingSetCount += 1
+            self.setCountLabel.text = "Set " + String(restingSetCount)
+        }
         
         // 20秒経過したらタイマー音を再生&workingTimerMethodを実行
         if (restingElapsedTime == 20) {
