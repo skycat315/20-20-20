@@ -10,7 +10,7 @@ import AudioToolbox // サウンドを使用するため
 import UICircularProgressRing // タイマーのプログレスバーを使用するため
 import UserNotifications // Notificationsを使用するため
 
-class TimerViewController: UIViewController {
+class TimerViewController: UIViewController, backgroundTimerDelegate {
     
     // ステータス表示ラベル
     @IBOutlet weak var statusLabel: UILabel!
@@ -33,15 +33,27 @@ class TimerViewController: UIViewController {
     var progressWorkingRing = UICircularProgressRing()
     var progressRestingRing = UICircularProgressRing()
     
+    // タイマー起動中にバックグラウンドに移動したか
+    var workingTimerIsBackground = false
+    var restingTimerIsBackground = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // SceneDelegateを取得
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate else {
+                  return
+              }
+        sceneDelegate.delegate = self
         
         // タイマーの作成、開始
         self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
         
         // progressWorkingRing
         // プログレスバーの初期設定
-        progressWorkingRing.maxValue = 10
+        progressWorkingRing.maxValue = 20
         progressWorkingRing.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         progressWorkingRing.center = self.view.center
         self.view.addSubview(progressWorkingRing)
@@ -81,10 +93,10 @@ class TimerViewController: UIViewController {
         // status表示
         self.statusLabel.text = String("Time to work")
         // プログレスバー表示
-        self.progressWorkingRing.startProgress(to: 10, duration: 10)
+        self.progressWorkingRing.startProgress(to: 20, duration: 20)
         
         // 20分(1200秒)を経過したらタイマー音を再生&restingTimerMethodに移動
-        if (workingElapsedTime == 10) {
+        if (workingElapsedTime == 20) {
             // サウンド再生
             var soundIdLadder:SystemSoundID = 1026
             if let soundUrl = CFBundleCopyResourceURL(CFBundleGetMainBundle(), nil, nil, nil) {
@@ -128,10 +140,10 @@ class TimerViewController: UIViewController {
         // status表示
         self.statusLabel.text = String("Time to take a break")
         // プログレスバー表示
-        self.progressRestingRing.startProgress(to: 5, duration: 5)
+        self.progressRestingRing.startProgress(to: 10, duration: 10)
         
         // 20秒経過したらタイマー音を再生&workingTimerMethodを実行
-        if (restingElapsedTime == 5) {
+        if (restingElapsedTime == 10) {
             // サウンド再生
             var soundIdLadder:SystemSoundID = 1026
             if let soundUrl = CFBundleCopyResourceURL(CFBundleGetMainBundle(), nil, nil, nil) {
@@ -237,5 +249,103 @@ class TimerViewController: UIViewController {
         }
         // トップ画面に遷移する
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // タイマー動作中にバックグラウンドへ移動した際の処理
+    func checkBackground() {
+        // 現在の時間を取得
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
+        dateFormatter.dateStyle = .medium
+        dateFormatter.locale = Locale(identifier: "en_US")
+        // Woriking/Restingのどちらが起動中か確認
+        if let _ = workingTimer {
+            workingTimerIsBackground = true
+            // タイマーの残り時間を計算
+            let remainWorkingTime = 20 - workingElapsedTime
+            // 20分に到達したタイミングでローカル通知を出す
+            let date2 = Date(timeInterval: TimeInterval(remainWorkingTime), since: date)
+            let targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2)
+            // ローカル通知が発動するtriggerを作成
+            let trigger = UNCalendarNotificationTrigger.init(dateMatching: targetDate, repeats: false)
+            // ローカル通知の内容
+            let workingNotification = UNMutableNotificationContent()
+            workingNotification.title = "20 minutes have passed"
+            workingNotification.body = "Tap here and start break time"
+            workingNotification.sound = UNNotificationSound.default
+            // 通知を表示
+            let workingNotificationRequest = UNNotificationRequest(identifier: "immediately", content: workingNotification, trigger: trigger)
+            UNUserNotificationCenter.current().add(workingNotificationRequest, withCompletionHandler: nil)
+        } else if let _ = restingTimer {
+            restingTimerIsBackground = true
+            // タイマーの残り時間を計算
+            let remainRestingTime = 10 - restingElapsedTime
+            // 20秒に到達したタイミングでローカル通知を出す
+            let date2 = Date(timeInterval: TimeInterval(remainRestingTime), since: date)
+            let targetDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date2)
+            // ローカル通知が発動するtriggerを作成
+            let trigger = UNCalendarNotificationTrigger.init(dateMatching: targetDate, repeats: false)
+            // ローカル通知の内容
+            let restingNotification = UNMutableNotificationContent()
+            restingNotification.title = "20 seconds have passed"
+            restingNotification.body = "Tap here and start work"
+            restingNotification.sound = UNNotificationSound.default
+            // 通知を表示
+            let restingNotificationRequest = UNNotificationRequest(identifier: "immediately", content: restingNotification, trigger: trigger)
+            UNUserNotificationCenter.current().add(restingNotificationRequest, withCompletionHandler: nil)
+        }
+    }
+    
+    func setCurrentTimer(_ elapsedTime: Int) {
+        if let _ = workingTimer {
+            // 残り時間にバックグラウンドでの経過時間を足す
+            workingElapsedTime += elapsedTime
+            if (workingElapsedTime < 20) {
+                // workingタイマーを再始動
+                self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
+            } else {
+                
+                // restingタイマーに遷移する
+                self.restingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(restingTimerMethod), userInfo: nil, repeats: true)
+                workingTimerIsBackground = false
+                restingTimerIsBackground = true
+                // タイマーを初期化
+                self.workingTimer.invalidate()
+                self.workingElapsedTime = 0
+                self.workingTimer = nil
+                self.workingTimerPause = true
+                // プログレスバーの色を初期状態に戻す
+                self.progressWorkingRing.resetProgress()
+            }
+        } else if let _ = restingTimer {
+            // 残り時間にバックグラウンドでの経過時間を足す
+            restingElapsedTime += elapsedTime
+            if (restingElapsedTime < 10) {
+                // restingタイマーを再始動
+                self.restingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(restingTimerMethod), userInfo: nil, repeats: true)
+            } else {
+                // workingタイマーに遷移する
+                self.workingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(workingTimerMethod), userInfo: nil, repeats: true)
+                workingTimerIsBackground = true
+                restingTimerIsBackground = false
+                // タイマーを初期化
+                self.restingTimer.invalidate()
+                self.restingElapsedTime = 0
+                self.restingTimer = nil
+                self.restingTimerPause = true
+                // プログレスバーの色を初期状態に戻す
+                self.progressRestingRing.resetProgress()
+            }
+        }
+    }
+    
+    func deleteTimer() {
+        // 起動中のタイマーを破棄する
+        if let _ = workingTimer {
+            workingTimer.invalidate()
+        } else if let _ = restingTimer {
+            restingTimer.invalidate()
+        }
     }
 }
