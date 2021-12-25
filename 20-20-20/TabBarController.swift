@@ -25,8 +25,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController is TimerViewController {
             // WorkingViewControllerはタブ切り替えではなくモーダル画面遷移する
-            let WorkingViewController = storyboard!.instantiateViewController(withIdentifier: "Working")
-            present(WorkingViewController, animated: true)
+            let TimerViewController = storyboard!.instantiateViewController(withIdentifier: "Timer")
+            TimerViewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+            present(TimerViewController, animated: true)
             return false
         } else {
             // 通常のタブ切り替えを実施

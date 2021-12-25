@@ -12,7 +12,7 @@
         <!--Timer-->
         <scene sceneID="L0v-NJ-MjW">
             <objects>
-                <viewController storyboardIdentifier="Working" id="seu-GW-gUf" customClass="TimerViewController" customModule="_0_20_20" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Timer" id="seu-GW-gUf" customClass="TimerViewController" customModule="_0_20_20" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b9t-cV-Mdb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
