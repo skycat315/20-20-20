@@ -11,6 +11,10 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
+    // 設定画面、タイマー画面で使用するためのtime intervalを保存する
+    var newWorkTime: Int = 0
+    var newRestTime: Int = 0
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // ユーザに通知の許可を求める --- ここから ---
@@ -43,4 +47,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 }
-

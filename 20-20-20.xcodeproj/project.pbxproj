@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		A5F9BC997B708889AFD1134B /* Pods_20_20_20.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 983A6A5B336D1D51C5C6F56E /* Pods_20_20_20.framework */; };
+		F63949382771AF2500DD90AC /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63949372771AF2500DD90AC /* SettingTableViewController.swift */; };
 		F6871311275E313600EBB632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871310275E313600EBB632 /* AppDelegate.swift */; };
 		F6871313275E313600EBB632 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871312275E313600EBB632 /* SceneDelegate.swift */; };
 		F6871318275E313600EBB632 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6871316275E313600EBB632 /* Main.storyboard */; };
 		F687131A275E313700EBB632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6871319275E313700EBB632 /* Assets.xcassets */; };
 		F687131D275E313700EBB632 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F687131B275E313700EBB632 /* LaunchScreen.storyboard */; };
 		F6871325275E318E00EBB632 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871324275E318E00EBB632 /* TimerViewController.swift */; };
-		F6871329275E31A900EBB632 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871328275E31A900EBB632 /* SettingViewController.swift */; };
 		F687132B275E323E00EBB632 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687132A275E323E00EBB632 /* HomeViewController.swift */; };
 		F6A528CD27633060005C3CEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A528CC27633060005C3CEF /* TabBarController.swift */; };
 		F6E7738A276DFA8F0034F5F6 /* NavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E77389276DFA8F0034F5F6 /* NavigationBarController.swift */; };
@@ -24,6 +24,7 @@
 		1706CF8A4E10C8C1B43D623B /* Pods-20-20-20.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20-20-20.debug.xcconfig"; path = "Target Support Files/Pods-20-20-20/Pods-20-20-20.debug.xcconfig"; sourceTree = "<group>"; };
 		983A6A5B336D1D51C5C6F56E /* Pods_20_20_20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_20_20_20.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CE89A7AE5BED5EEBD5798D /* Pods-20-20-20.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-20-20-20.release.xcconfig"; path = "Target Support Files/Pods-20-20-20/Pods-20-20-20.release.xcconfig"; sourceTree = "<group>"; };
+		F63949372771AF2500DD90AC /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		F687130D275E313600EBB632 /* 20-20-20.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "20-20-20.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6871310275E313600EBB632 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6871312275E313600EBB632 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		F687131C275E313700EBB632 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F687131E275E313700EBB632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6871324275E318E00EBB632 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		F6871328275E31A900EBB632 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F687132A275E323E00EBB632 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F6A528CC27633060005C3CEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F6E77389276DFA8F0034F5F6 /* NavigationBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarController.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				F687132A275E323E00EBB632 /* HomeViewController.swift */,
 				F6A528CC27633060005C3CEF /* TabBarController.swift */,
 				F6E77389276DFA8F0034F5F6 /* NavigationBarController.swift */,
-				F6871328275E31A900EBB632 /* SettingViewController.swift */,
+				F63949372771AF2500DD90AC /* SettingTableViewController.swift */,
 				F6871324275E318E00EBB632 /* TimerViewController.swift */,
 				F6871316275E313600EBB632 /* Main.storyboard */,
 				F6871319275E313700EBB632 /* Assets.xcassets */,
@@ -217,13 +217,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F63949382771AF2500DD90AC /* SettingTableViewController.swift in Sources */,
 				F6871311275E313600EBB632 /* AppDelegate.swift in Sources */,
 				F6871325275E318E00EBB632 /* TimerViewController.swift in Sources */,
 				F6871313275E313600EBB632 /* SceneDelegate.swift in Sources */,
 				F6E7738A276DFA8F0034F5F6 /* NavigationBarController.swift in Sources */,
 				F6A528CD27633060005C3CEF /* TabBarController.swift in Sources */,
 				F687132B275E323E00EBB632 /* HomeViewController.swift in Sources */,
-				F6871329275E31A900EBB632 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
