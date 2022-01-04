@@ -17,7 +17,11 @@
 		F6871325275E318E00EBB632 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6871324275E318E00EBB632 /* TimerViewController.swift */; };
 		F687132B275E323E00EBB632 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F687132A275E323E00EBB632 /* HomeViewController.swift */; };
 		F6A528CD27633060005C3CEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A528CC27633060005C3CEF /* TabBarController.swift */; };
+		F6A9983C27826B07006B1DA8 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A9983B27826B07006B1DA8 /* PurchaseViewController.swift */; };
+		F6A99840278284CD006B1DA8 /* AppStoreClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A9983F278284CD006B1DA8 /* AppStoreClass.swift */; };
+		F6C53B942781849D00EFD7D9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C53B932781849D00EFD7D9 /* StoreKit.framework */; };
 		F6E7738A276DFA8F0034F5F6 /* NavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E77389276DFA8F0034F5F6 /* NavigationBarController.swift */; };
+		F6FCA7882777400700B66AD3 /* TimeIntervalChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FCA7872777400700B66AD3 /* TimeIntervalChangeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +39,12 @@
 		F6871324275E318E00EBB632 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		F687132A275E323E00EBB632 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F6A528CC27633060005C3CEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F6A9983B27826B07006B1DA8 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		F6A9983F278284CD006B1DA8 /* AppStoreClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreClass.swift; sourceTree = "<group>"; };
+		F6C53B862781417800EFD7D9 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		F6C53B932781849D00EFD7D9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F6E77389276DFA8F0034F5F6 /* NavigationBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarController.swift; sourceTree = "<group>"; };
+		F6FCA7872777400700B66AD3 /* TimeIntervalChangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalChangeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5F9BC997B708889AFD1134B /* Pods_20_20_20.framework in Frameworks */,
+				F6C53B942781849D00EFD7D9 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +63,7 @@
 		11B66BB870DC8D2F81C9AFEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6C53B932781849D00EFD7D9 /* StoreKit.framework */,
 				983A6A5B336D1D51C5C6F56E /* Pods_20_20_20.framework */,
 			);
 			name = Frameworks;
@@ -89,11 +100,15 @@
 			isa = PBXGroup;
 			children = (
 				F6871310275E313600EBB632 /* AppDelegate.swift */,
+				F6A9983F278284CD006B1DA8 /* AppStoreClass.swift */,
+				F6C53B862781417800EFD7D9 /* Configuration.storekit */,
 				F6871312275E313600EBB632 /* SceneDelegate.swift */,
 				F687132A275E323E00EBB632 /* HomeViewController.swift */,
+				F6A9983B27826B07006B1DA8 /* PurchaseViewController.swift */,
 				F6A528CC27633060005C3CEF /* TabBarController.swift */,
 				F6E77389276DFA8F0034F5F6 /* NavigationBarController.swift */,
 				F63949372771AF2500DD90AC /* SettingTableViewController.swift */,
+				F6FCA7872777400700B66AD3 /* TimeIntervalChangeButton.swift */,
 				F6871324275E318E00EBB632 /* TimerViewController.swift */,
 				F6871316275E313600EBB632 /* Main.storyboard */,
 				F6871319275E313700EBB632 /* Assets.xcassets */,
@@ -219,11 +234,14 @@
 			files = (
 				F63949382771AF2500DD90AC /* SettingTableViewController.swift in Sources */,
 				F6871311275E313600EBB632 /* AppDelegate.swift in Sources */,
+				F6A9983C27826B07006B1DA8 /* PurchaseViewController.swift in Sources */,
 				F6871325275E318E00EBB632 /* TimerViewController.swift in Sources */,
 				F6871313275E313600EBB632 /* SceneDelegate.swift in Sources */,
 				F6E7738A276DFA8F0034F5F6 /* NavigationBarController.swift in Sources */,
 				F6A528CD27633060005C3CEF /* TabBarController.swift in Sources */,
 				F687132B275E323E00EBB632 /* HomeViewController.swift in Sources */,
+				F6A99840278284CD006B1DA8 /* AppStoreClass.swift in Sources */,
+				F6FCA7882777400700B66AD3 /* TimeIntervalChangeButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7K7C9BT4Z7;
 				INFOPLIST_FILE = "20-20-20/Info.plist";
@@ -378,8 +397,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.techacademy.skycat.-0-20-20";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.techacademy.skycat.20-20-20";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -391,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7K7C9BT4Z7;
 				INFOPLIST_FILE = "20-20-20/Info.plist";
@@ -398,8 +419,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.techacademy.skycat.-0-20-20";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.techacademy.skycat.20-20-20";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
