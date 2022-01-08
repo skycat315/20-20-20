@@ -41,7 +41,6 @@
 		F6A528CC27633060005C3CEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F6A9983B27826B07006B1DA8 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
 		F6A9983F278284CD006B1DA8 /* AppStoreClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreClass.swift; sourceTree = "<group>"; };
-		F6C53B862781417800EFD7D9 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		F6C53B932781849D00EFD7D9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F6E77389276DFA8F0034F5F6 /* NavigationBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarController.swift; sourceTree = "<group>"; };
 		F6FCA7872777400700B66AD3 /* TimeIntervalChangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalChangeButton.swift; sourceTree = "<group>"; };
@@ -101,7 +100,6 @@
 			children = (
 				F6871310275E313600EBB632 /* AppDelegate.swift */,
 				F6A9983F278284CD006B1DA8 /* AppStoreClass.swift */,
-				F6C53B862781417800EFD7D9 /* Configuration.storekit */,
 				F6871312275E313600EBB632 /* SceneDelegate.swift */,
 				F687132A275E323E00EBB632 /* HomeViewController.swift */,
 				F6A9983B27826B07006B1DA8 /* PurchaseViewController.swift */,

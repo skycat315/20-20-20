@@ -135,7 +135,7 @@
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AEl-su-pBC" customClass="TimeIntervalChangeButton" customModule="_0_20_20" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="154.5" width="414" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.63137254899999995" green="0.87058823529999996" blue="0.57647058819999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="1" green="0.69803921570000005" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <buttonConfiguration key="configuration" style="plain"/>
                             <connections>
                                 <action selector="changeButton:" destination="62H-CI-l0W" eventType="touchUpInside" id="mUj-ap-OrF"/>
@@ -232,48 +232,14 @@
             <objects>
                 <viewController id="Av9-Bl-xjY" customClass="PurchaseViewController" customModule="_0_20_20" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3dS-Hw-ZTq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4W6-4G-NBz">
-                                <rect key="frame" x="57" y="100" width="300" height="450"/>
+                                <rect key="frame" x="57" y="248" width="300" height="400"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Upgrade" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IGY-We-F0c">
-                                        <rect key="frame" x="106" y="30" width="88" height="34"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0.99" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPe-aV-lvT">
-                                        <rect key="frame" x="115.5" y="79" width="69" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Customize Time Interval" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-Dx-bT1">
-                                        <rect key="frame" x="61" y="128" width="178" height="34"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t39-jC-W8f">
-                                        <rect key="frame" x="25" y="177" width="250" height="180"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="180" id="8Zb-l6-PXf"/>
-                                            <constraint firstAttribute="width" constant="250" id="FXH-Tv-T9D"/>
-                                        </constraints>
-                                        <string key="text">You will be able to select each time interval from lists.
-
-1. Work time
-Every 5 mins between 5 mins to 60 mins
-
-2. Rest time
-Every 5 sec between 5 sec to 60 sec</string>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOe-OX-4Go">
-                                        <rect key="frame" x="155" y="372" width="115" height="35"/>
+                                        <rect key="frame" x="155" y="345" width="115" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="6pO-9G-UL3"/>
                                             <constraint firstAttribute="width" constant="115" id="nGc-Bo-HS0"/>
@@ -286,7 +252,7 @@ Every 5 sec between 5 sec to 60 sec</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKb-zL-1UY">
-                                        <rect key="frame" x="30" y="372" width="115" height="35"/>
+                                        <rect key="frame" x="30" y="345" width="115" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="115" id="Qo3-Un-fuJ"/>
                                             <constraint firstAttribute="height" constant="35" id="weC-Xi-ujT"/>
@@ -298,45 +264,132 @@ Every 5 sec between 5 sec to 60 sec</string>
                                             <action selector="purchaseButton:" destination="Av9-Bl-xjY" eventType="touchUpInside" id="bMt-O4-PKn"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaB-xz-rJX">
+                                        <rect key="frame" x="50" y="20" width="200" height="20.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customize Time Interval" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NP-Pb-wWu">
+                                        <rect key="frame" x="20" y="91" width="260" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNZ-V6-gAH">
+                                        <rect key="frame" x="25" y="126.5" width="250" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="180" id="YLA-b3-L17"/>
+                                            <constraint firstAttribute="width" constant="250" id="aia-h1-ZfJ"/>
+                                        </constraints>
+                                        <string key="text">You will be able to select each time interval from lists.
+
+1. Work time
+Every 5 mins between 5 mins to 60 mins
+
+2. Rest time
+Every 5 sec between 5 sec to 60 sec</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1i-tV-Djg">
+                                        <rect key="frame" x="50" y="55.5" width="200" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmD-RR-Qx8">
+                                        <rect key="frame" x="8" y="376" width="150" height="23.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="LlC-qT-RlW"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Privacy Policy">
+                                                    <attributes>
+                                                        <font key="NSFont" size="8" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="privacyPolicyButton:" destination="Av9-Bl-xjY" eventType="touchUpInside" id="U4h-d8-3pz"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already purchased?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32E-pN-cY3">
+                                        <rect key="frame" x="165" y="382" width="100" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="5vJ-bR-jRe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <color key="textColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.84705882349999995" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="HbS-Dx-bT1" firstAttribute="top" secondItem="RPe-aV-lvT" secondAttribute="bottom" constant="15" id="1Tn-Pj-ojm"/>
-                                    <constraint firstItem="RPe-aV-lvT" firstAttribute="top" secondItem="IGY-We-F0c" secondAttribute="bottom" constant="15" id="3iH-y4-Q7B"/>
+                                    <constraint firstItem="KaB-xz-rJX" firstAttribute="leading" secondItem="4W6-4G-NBz" secondAttribute="leading" constant="50" id="35g-HA-NAg"/>
+                                    <constraint firstAttribute="bottom" secondItem="aOe-OX-4Go" secondAttribute="bottom" constant="20" id="5gZ-E2-BII"/>
+                                    <constraint firstItem="KaB-xz-rJX" firstAttribute="centerX" secondItem="4W6-4G-NBz" secondAttribute="centerX" id="5wy-gj-rfk"/>
+                                    <constraint firstItem="wNZ-V6-gAH" firstAttribute="top" secondItem="0NP-Pb-wWu" secondAttribute="bottom" constant="15" id="D6e-KX-Sd8"/>
+                                    <constraint firstItem="wNZ-V6-gAH" firstAttribute="centerX" secondItem="4W6-4G-NBz" secondAttribute="centerX" id="EYD-Qp-aEA"/>
+                                    <constraint firstItem="0NP-Pb-wWu" firstAttribute="leading" secondItem="4W6-4G-NBz" secondAttribute="leading" constant="20" id="Ev7-cH-gm7"/>
+                                    <constraint firstAttribute="trailing" secondItem="0NP-Pb-wWu" secondAttribute="trailing" constant="20" id="GjW-hV-TUz"/>
+                                    <constraint firstItem="32E-pN-cY3" firstAttribute="top" secondItem="aOe-OX-4Go" secondAttribute="bottom" constant="2" id="JPb-hx-c9u"/>
                                     <constraint firstAttribute="trailing" secondItem="aOe-OX-4Go" secondAttribute="trailing" constant="30" id="M6Y-jJ-jDI"/>
-                                    <constraint firstAttribute="height" constant="450" id="OdH-qI-FQC"/>
-                                    <constraint firstItem="t39-jC-W8f" firstAttribute="centerX" secondItem="4W6-4G-NBz" secondAttribute="centerX" id="PgS-HR-jxH"/>
-                                    <constraint firstItem="IGY-We-F0c" firstAttribute="top" secondItem="4W6-4G-NBz" secondAttribute="top" constant="30" id="W5f-WT-6cq"/>
-                                    <constraint firstItem="t39-jC-W8f" firstAttribute="top" secondItem="HbS-Dx-bT1" secondAttribute="bottom" constant="15" id="aTo-Ey-Yzc"/>
-                                    <constraint firstItem="aOe-OX-4Go" firstAttribute="top" secondItem="t39-jC-W8f" secondAttribute="bottom" constant="15" id="ezf-QX-hYy"/>
-                                    <constraint firstItem="IGY-We-F0c" firstAttribute="centerX" secondItem="4W6-4G-NBz" secondAttribute="centerX" id="gog-uk-9qS"/>
-                                    <constraint firstItem="GKb-zL-1UY" firstAttribute="top" secondItem="t39-jC-W8f" secondAttribute="bottom" constant="15" id="kPg-pm-ltg"/>
-                                    <constraint firstItem="HbS-Dx-bT1" firstAttribute="centerX" secondItem="4W6-4G-NBz" secondAttribute="centerX" id="ofV-ne-OkO"/>
+                                    <constraint firstAttribute="trailing" secondItem="KaB-xz-rJX" secondAttribute="trailing" constant="50" id="NDJ-5e-9GD"/>
+                                    <constraint firstAttribute="height" constant="400" id="OdH-qI-FQC"/>
+                                    <constraint firstItem="KaB-xz-rJX" firstAttribute="top" secondItem="4W6-4G-NBz" secondAttribute="top" constant="20" id="P0v-cv-Rjs"/>
+                                    <constraint firstItem="d1i-tV-Djg" firstAttribute="leading" secondItem="4W6-4G-NBz" secondAttribute="leading" constant="50" id="QeN-lx-EWL"/>
+                                    <constraint firstItem="cmD-RR-Qx8" firstAttribute="leading" secondItem="4W6-4G-NBz" secondAttribute="leading" constant="8" id="YQJ-TN-Z6W"/>
+                                    <constraint firstItem="cmD-RR-Qx8" firstAttribute="top" secondItem="GKb-zL-1UY" secondAttribute="bottom" constant="-4" id="ZJx-wH-zBL"/>
+                                    <constraint firstItem="0NP-Pb-wWu" firstAttribute="centerX" secondItem="4W6-4G-NBz" secondAttribute="centerX" id="b2F-iD-PXe"/>
+                                    <constraint firstAttribute="bottom" secondItem="GKb-zL-1UY" secondAttribute="bottom" constant="20" id="bQ6-Jt-4jk"/>
+                                    <constraint firstItem="0NP-Pb-wWu" firstAttribute="top" secondItem="d1i-tV-Djg" secondAttribute="bottom" constant="15" id="fUU-8q-jGm"/>
+                                    <constraint firstAttribute="trailing" secondItem="d1i-tV-Djg" secondAttribute="trailing" constant="50" id="h0z-sA-qdD"/>
+                                    <constraint firstItem="d1i-tV-Djg" firstAttribute="centerX" secondItem="4W6-4G-NBz" secondAttribute="centerX" id="jkP-Cs-dnF"/>
+                                    <constraint firstAttribute="trailing" secondItem="32E-pN-cY3" secondAttribute="trailing" constant="35" id="ptb-76-as7"/>
+                                    <constraint firstItem="d1i-tV-Djg" firstAttribute="top" secondItem="KaB-xz-rJX" secondAttribute="bottom" constant="15" id="q9j-IV-Cii"/>
                                     <constraint firstAttribute="width" constant="300" id="qrK-3M-o6y"/>
-                                    <constraint firstItem="RPe-aV-lvT" firstAttribute="centerX" secondItem="4W6-4G-NBz" secondAttribute="centerX" id="x10-2o-aZ2"/>
                                     <constraint firstItem="GKb-zL-1UY" firstAttribute="leading" secondItem="4W6-4G-NBz" secondAttribute="leading" constant="30" id="zRS-KN-CSN"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="br4-OT-DoF">
+                                <rect key="frame" x="168.5" y="777" width="77.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward.2" catalog="system" title="Back"/>
+                                <connections>
+                                    <segue destination="PYT-Zh-gra" kind="unwind" unwindAction="back:" id="kbI-YW-vzP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I8b-JI-Mjz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4W6-4G-NBz" firstAttribute="centerY" secondItem="3dS-Hw-ZTq" secondAttribute="centerY" id="T73-UX-hxj"/>
+                            <constraint firstItem="I8b-JI-Mjz" firstAttribute="bottom" secondItem="br4-OT-DoF" secondAttribute="bottom" constant="5" id="blB-FY-XCq"/>
                             <constraint firstItem="4W6-4G-NBz" firstAttribute="centerX" secondItem="3dS-Hw-ZTq" secondAttribute="centerX" id="mBi-OR-owx"/>
+                            <constraint firstItem="br4-OT-DoF" firstAttribute="centerX" secondItem="3dS-Hw-ZTq" secondAttribute="centerX" id="uq8-mA-qFB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5D7-Qw-O3z"/>
-                    <size key="freeformSize" width="414" height="650"/>
                     <connections>
                         <outlet property="frameView" destination="4W6-4G-NBz" id="7lC-oZ-AFP"/>
-                        <outlet property="itemExplainTextView" destination="t39-jC-W8f" id="uKl-4l-taF"/>
-                        <outlet property="itemTextField" destination="HbS-Dx-bT1" id="U1g-Ql-pcN"/>
-                        <outlet property="priceTextField" destination="RPe-aV-lvT" id="pxU-d7-3NC"/>
+                        <outlet property="itemExplainLabel" destination="wNZ-V6-gAH" id="JFu-aX-6V5"/>
+                        <outlet property="itemLabel" destination="0NP-Pb-wWu" id="MbJ-io-Ebh"/>
+                        <outlet property="priceLabel" destination="d1i-tV-Djg" id="c0c-up-kBT"/>
                         <outlet property="purchaseButton" destination="GKb-zL-1UY" id="mWW-jI-uTJ"/>
                         <outlet property="restoreButton" destination="aOe-OX-4Go" id="NG1-t0-0UE"/>
-                        <outlet property="upgradeTextField" destination="IGY-We-F0c" id="v9p-K4-aN1"/>
+                        <outlet property="upgradeLabel" destination="KaB-xz-rJX" id="I5M-7w-cgF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgr-nd-bZz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="PYT-Zh-gra" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1269.5652173913045" y="103.79464285714285"/>
         </scene>
@@ -589,6 +642,7 @@ Every 5 sec between 5 sec to 60 sec</string>
     </scenes>
     <resources>
         <image name="arrow.left.square" catalog="system" width="128" height="114"/>
+        <image name="chevron.backward.2" catalog="system" width="128" height="105"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="timer" catalog="system" width="128" height="121"/>

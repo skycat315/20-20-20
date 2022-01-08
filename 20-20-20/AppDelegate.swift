@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // 購入処理
+        // アプリ起動時にUserDefaultを読み込んで、購入有無をシングルトンクラスに保存
         AppStoreClass.shared.loadPurchased()
         initSwiftyStorekit()
         

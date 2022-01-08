@@ -8,22 +8,19 @@
 import Foundation
 import StoreKit
 import SwiftyStoreKit
+
 final class AppStoreClass {
    public init() {}
    static let shared = AppStoreClass()
    
    // 購入済みかどうか確認
    var isPurchased = false
-   // アプリ起動時にonlineに繋いでAppStoreで購入済みか確認する（1件のみ有料アイテムを登録）
-   func isPurchasedWhenAppStart() {
-       restore { isSuccess in
-           if (isSuccess) {
-               self.isPurchased = true
-           } else {
-               self.isPurchased = false
-           }
-       }
-   }
+    
+    // 購入済みを保存する
+    func savePurchased() {
+        self.isPurchased = true
+        UserDefaults.standard.set(self.isPurchased, forKey: "isPurchased")
+    }
     
     // 購入済みかどうかを読み込んで確認する
     func loadPurchased() {

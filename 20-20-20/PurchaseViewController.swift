@@ -11,24 +11,27 @@ import SwiftyStoreKit
 
 class PurchaseViewController: UIViewController {
     
-    // 各Text
+    // 各Label
     @IBOutlet weak var frameView: UIView!
-    @IBOutlet weak var upgradeTextField: UITextField!
-    @IBOutlet weak var priceTextField: UITextField!
-    @IBOutlet weak var itemTextField: UITextField!
-    @IBOutlet weak var itemExplainTextView: UITextView!
+    @IBOutlet weak var upgradeLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var itemExplainLabel: UILabel!
     
     // Button
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
     
-    
+    // 購入状況
     var isPurchased = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 枠部分の設定
+        // ページ上部のbackボタンを非表示にする
+        self.navigationItem.hidesBackButton = true
+        
+        // frame部分の設定
         self.frameView.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
         self.frameView.layer.borderColor = UIColor(red: 1, green: 0.7, blue: 0.2, alpha: 1).cgColor
         self.frameView.layer.borderWidth = 5.0
@@ -36,36 +39,36 @@ class PurchaseViewController: UIViewController {
         self.frameView.layer.masksToBounds = true
         self.view.addSubview(frameView)
         
-        // upgradeTextField
-        self.upgradeTextField.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
-        self.upgradeTextField.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1).cgColor
-        self.upgradeTextField.layer.borderWidth = 5.0
-        self.upgradeTextField.font = UIFont(name: "TimesNewRomanPSMT", size: 28)
+        // upgradeLabe
+        self.upgradeLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
+        self.upgradeLabel.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1).cgColor
+        self.upgradeLabel.layer.borderWidth = 1.0
+        self.upgradeLabel.font = UIFont(name: "TimesNewRomanPS-BoldItalicMT", size: 28)
         
-        // priceTextField
-        self.priceTextField.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
-        self.priceTextField.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1).cgColor
-        self.priceTextField.layer.borderWidth = 5.0
-        self.priceTextField.textColor = UIColor(red: 1, green: 0.7, blue: 0.2, alpha: 1)
-        self.priceTextField.font = UIFont.boldSystemFont(ofSize: 34)
+        // priceLabel
+        self.priceLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
+        self.priceLabel.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1).cgColor
+        self.priceLabel.layer.borderWidth = 1.0
+        self.priceLabel.textColor = UIColor(red: 1, green: 0.7, blue: 0.2, alpha: 1)
+        self.priceLabel.font = UIFont.boldSystemFont(ofSize: 34)
         
-        // itemTextField
-        self.itemTextField.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
-        self.itemTextField.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1).cgColor
-        self.itemTextField.layer.borderWidth = 5.0
-        self.itemTextField.font = UIFont.systemFont(ofSize: 18)
+        // itemLabel
+        self.itemLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
+        self.itemLabel.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1).cgColor
+        self.itemLabel.layer.borderWidth = 1.0
+        self.itemLabel.font = UIFont.systemFont(ofSize: 18)
         // 下線を引く
-        guard let targetText = itemTextField.text else {return}
+        guard let targetText = itemLabel.text else {return}
         let attributedString = NSMutableAttributedString(string: targetText)
         attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSString(string: targetText).range(of: targetText))
-        itemTextField.attributedText = attributedString
+        itemLabel.attributedText = attributedString
         
-        // itemExplainTextView
-        self.itemExplainTextView.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
-        self.itemExplainTextView.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1).cgColor
-        self.itemExplainTextView.layer.borderWidth = 1.0
-        self.itemExplainTextView.textColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
-        self.itemExplainTextView.font = UIFont.systemFont(ofSize: 14)
+        // itemExplainLabel
+        self.itemExplainLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
+        self.itemExplainLabel.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1).cgColor
+        self.itemExplainLabel.layer.borderWidth = 1.0
+        self.itemExplainLabel.textColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        self.itemExplainLabel.font = UIFont.systemFont(ofSize: 14)
         
         // purchaseButton
         self.purchaseButton.frame = CGRect(x: 0, y: 0, width: 115, height: 35)
@@ -102,6 +105,14 @@ class PurchaseViewController: UIViewController {
                 failAlert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(failAlert, animated: true, completion: nil)
             }
+        }
+    }
+    
+    //Privacy PolicyボタンをタップするとポートフォリオサイトのPrivacyページに飛ぶ
+    @IBAction func privacyPolicyButton(_ sender: Any) {
+        let privacyPolicyUrl = NSURL(string: "https://skycat315.sakura.ne.jp/top/privacy-policy/")
+        if UIApplication.shared.canOpenURL(privacyPolicyUrl! as URL) {
+            UIApplication.shared.open(privacyPolicyUrl! as URL, options: [:], completionHandler: nil)
         }
     }
 }
