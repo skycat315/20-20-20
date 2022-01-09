@@ -58,10 +58,10 @@ class PurchaseViewController: UIViewController {
         self.itemLabel.layer.borderWidth = 1.0
         self.itemLabel.font = UIFont.systemFont(ofSize: 18)
         // 下線を引く
-        guard let targetText = itemLabel.text else {return}
-        let attributedString = NSMutableAttributedString(string: targetText)
-        attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSString(string: targetText).range(of: targetText))
-        itemLabel.attributedText = attributedString
+        guard let itemLabelTargetText = itemLabel.text else {return}
+        let itemLabelAttributedString = NSMutableAttributedString(string: itemLabelTargetText)
+        itemLabelAttributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSString(string: itemLabelTargetText).range(of: itemLabelTargetText))
+        itemLabel.attributedText = itemLabelAttributedString
         
         // itemExplainLabel
         self.itemExplainLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
@@ -86,6 +86,7 @@ class PurchaseViewController: UIViewController {
         self.restoreButton.layer.cornerRadius = 10
     }
     
+    
     // Purchaseボタン
     @IBAction func purchaseButton(_ sender: Any) {
         // 購入
@@ -108,7 +109,7 @@ class PurchaseViewController: UIViewController {
         }
     }
     
-    //Privacy PolicyボタンをタップするとポートフォリオサイトのPrivacyページに飛ぶ
+    //Privacy PolicyボタンをタップするとポートフォリオサイトのPrivacyページに移動
     @IBAction func privacyPolicyButton(_ sender: Any) {
         let privacyPolicyUrl = NSURL(string: "https://skycat315.sakura.ne.jp/top/privacy-policy/")
         if UIApplication.shared.canOpenURL(privacyPolicyUrl! as URL) {

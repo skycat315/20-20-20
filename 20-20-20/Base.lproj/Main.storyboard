@@ -310,13 +310,18 @@ Every 5 sec between 5 sec to 60 sec</string>
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Privacy Policy">
                                                     <attributes>
+                                                        <color key="NSColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <font key="NSFont" size="8" name="Helvetica"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                             <color key="baseForegroundColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="privacyPolicyButton:" destination="Av9-Bl-xjY" eventType="touchUpInside" id="Fgk-fK-t7M"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already purchased?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32E-pN-cY3">
                                         <rect key="frame" x="165" y="382" width="100" height="10"/>
