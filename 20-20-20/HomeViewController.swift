@@ -11,22 +11,21 @@ import Accounts
 class HomeViewController: UIViewController {
     
     // shareボタン
-    // @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // shareボタンの色
-        // self.shareBarButtonItem.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        self.shareBarButtonItem.tintColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         
     }
     
     //シェアアイコン
-    /*
     @IBAction func share(_ sender: Any) {
         
         let shareText = "20-20-20 for your eyes"
-        let shareWebsite = NSURL(string: "https://skycat315.sakura.ne.jp/top/privacy-policy/")!
+        let shareWebsite = NSURL(string: "https://apps.apple.com/jp/app/20-20-20-for-your-eyes/id1602228878?l=en")!
         let shareImage = UIImage(named: "Icon")!
         
         let activityItems: Array<Any> = [shareText, shareWebsite, shareImage]
@@ -53,6 +52,4 @@ class HomeViewController: UIViewController {
         // UIActivityViewControllerを表示
         self.present(activityVC, animated: true, completion: nil)
     }
-     */
-
 }
