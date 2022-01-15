@@ -233,7 +233,7 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
             let workingNotification = UNMutableNotificationContent()
             let workingNotificationWithSpace = String(restTime) + " seconds have passed"
             workingNotification.title = workingNotificationWithSpace.trimmingCharacters(in: .whitespaces)
-            workingNotification.body = "You can back to work now"
+            workingNotification.body = "You can back to work"
             // workingNotification.sound = UNNotificationSound.default
             // 通知を表示
             let workingNotificationRequest = UNNotificationRequest(identifier: "immediately", content: workingNotification, trigger: nil)
@@ -354,7 +354,7 @@ class TimerViewController: UIViewController, backgroundTimerDelegate {
                 let restingNotification = UNMutableNotificationContent()
                 let restingNotificationWithSpace = String(workTime / 60) + " minutes have passed"
                 restingNotification.title = restingNotificationWithSpace.trimmingCharacters(in: .whitespaces)
-                restingNotification.body = "Tap here and start break time"
+                restingNotification.body = "Tap here and look at something 20 feet away"
                 restingNotification.sound = UNNotificationSound.default
                 // 通知を表示
                 let restingNotificationRequest = UNNotificationRequest(identifier: "immediately", content: restingNotification, trigger: trigger)
