@@ -622,6 +622,9 @@ Every 5 sec between 5 sec to 60 sec</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qmp-G1-C22">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -641,6 +644,9 @@ Every 5 sec between 5 sec to 60 sec</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xq8-Hm-iEZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
